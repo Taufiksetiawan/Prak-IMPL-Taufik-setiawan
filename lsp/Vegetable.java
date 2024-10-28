@@ -1,4 +1,4 @@
-class Vegetable extends Product {
+class Vegetable extends FoodProduct {
 
     @Override
     String getName() {
@@ -8,4 +8,6 @@ class Vegetable extends Product {
     @Override
     Date getExpiredDate() {
     return new Date();
-    
+    }
+   } 
+   
