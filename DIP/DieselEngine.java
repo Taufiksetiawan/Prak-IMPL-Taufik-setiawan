@@ -1,0 +1,4 @@
+class DieselEngine {
+    void start() {
+    }
+}
