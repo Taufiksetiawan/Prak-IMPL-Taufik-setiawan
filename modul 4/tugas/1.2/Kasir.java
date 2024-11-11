@@ -1,37 +1,18 @@
-import java.util.Scanner;
-
 public class Kasir {
     public static void main(String[] args) {
-        String nama;
-        int harga;
-        int stok;
-        Scanner in = new Scanner(System.in);
+        // Initialize model with product data
+        Product model = new Product("GeForce GTX 1060Ti", 3000, 10);
 
-        // Inisiasi
-        nama = "GeForce GTX 1060Ti";
-        harga = 3000;
-        stok = 10;
+        // Initialize view
+        ProductView view = new ProductView();
 
-        // Tampilan info
-        System.out.println("Nama Barang : " + nama);
-        System.out.println("Harga Barang : " + harga);
-        System.out.println("Stok Barang : " + stok);
+        // Initialize controller
+        ProductController controller = new ProductController(model, view);
 
-        // Transaksi pembelian
-        int qty;
-        System.out.println("Transaksi Pembelian");
-        System.out.print("Jumlah barang : ");
-        qty = in.nextInt();
-        stok = stok - qty;
+        // Display initial product information
+        controller.displayProduct();
 
-        // Print Pembayaran
-        System.out.println("Jumlah Bayar : " + qty * harga);
-
-        // Tampilan info
-        System.out.println("Nama Barang : " + nama);
-        System.out.println("Harga Barang : " + harga);
-        System.out.println("Stok Barang : " + stok);
-        
-        in.close();
+        // Process a purchase transaction
+        controller.processPurchase();
     }
 }
