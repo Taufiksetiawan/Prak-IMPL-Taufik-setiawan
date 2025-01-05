@@ -1,0 +1,9 @@
+private void CheckCustomerInquiryNullOrEmpty(CustomerInquiryRequest request)
+{
+    if (string.IsNullOrEmpty(request.Customer.CustomerID) &&
+        string.IsNullOrEmpty(request.Customer.Product.ProductNumber))
+    {
+        // Both are null or empty strings
+        throw new BusinessException(HandledErrors.CustomerEmptyMessage);
+    }
+}

@@ -1,0 +1,6 @@
+private void CheckCustomerInquiryNotNullOrEmpty(CustomerInquiryRequest request){
+    if (!string.IsNullOrEmpty(request.Customer.CustomerID) &&
+        !string.IsNullOrEmpty(request.Customer.Product.ProductNumber)){
+        throw new BusinessException(HandledErrors.InvalidBothParameterMessage);
+    }
+}

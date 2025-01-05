@@ -1,0 +1,17 @@
+private void CheckProductNumberValid(CustomerInquiryRequest request, int productFieldLength)
+{
+    if (!string.IsNullOrEmpty(request.Customer.Product.ProductNumber))
+    {
+        // Check Product Length
+        if (request.Customer.Product.ProductNumber.Length > productFieldLength)
+        {
+            throw new BusinessException(HandledErrors.ProductInvalidLengthMessage);
+        }
+
+        // Pad the left of the Product Number
+        request.Customer.Product.ProductNumber = request.Customer.Product.ProductNumber.PadLeft(
+            productFieldLength,
+            Convert.ToChar("0", CultureInfo.CurrentCulture)
+        );
+    }
+}
